@@ -4,7 +4,7 @@ let button;
 let num=0;
 let grid_points=[];
 let size=600;
-let square_width=30;
+let square_width=60;
 let n=size/square_width;
 let ground_height=40;
 let i,j,k;
@@ -17,9 +17,13 @@ function setup(){
   z=createSlider(0,360,0,1);
   button=createButton("Switch between rotate and no rotate mode");
   button.mousePressed(change)
-  ground=new floor(0,0,0,ground_height,size);
+
+  ground=new floors(0,0,0,ground_height,size);
   for(i=0;i<n;i++){
-    grid_points[i]=new points()
+    grid_points[i]=[]
+    for(j=0;j<n;j++){
+      grid_points[i][j]=new points((floor(n/2)-i-1/2)*square_width,(floor(n/2)-j-1/2)*square_width,0);
+    }
   }
 }
 
@@ -34,9 +38,23 @@ function draw(){
     rotateX(radians(158));
     rotateY(radians(45));
   }
+
+
   ground.show()
   axes();
+  for(i=0;i<n;i++){
+    for(j=0;j<n;j++){
+      grid_points[i][j].show()
+    }
+  }
+
+
 }
+
+
+
+
+
 
 function change(){
   if(num==0){

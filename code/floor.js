@@ -1,4 +1,4 @@
-class floor{
+class floors{
 
   constructor(x,y,z,height,size){
     this.x=x;

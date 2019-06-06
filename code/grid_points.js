@@ -2,7 +2,7 @@ class points{
   constructor(x,y,height){
       this.x=x;
       this.y=y;
-      this.height=height;
+      this.height=height+ground_height;
   }
 
   show(){
